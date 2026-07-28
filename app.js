@@ -868,8 +868,8 @@ function initProjectCarousel() {
     categories.forEach((cat) => {
       const btn = document.createElement('button');
       btn.className = `px-5 py-2 rounded-xl text-sm font-mono font-bold transition-all duration-200 border-2 ${activeFilter === cat
-          ? 'bg-emerald-500 text-zinc-950 border-emerald-400 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.9)] scale-105'
-          : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-600 hover:text-white'
+        ? 'bg-emerald-500 text-zinc-950 border-emerald-400 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.9)] scale-105'
+        : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-600 hover:text-white'
         }`;
       btn.textContent = cat;
       btn.addEventListener('click', () => {
@@ -881,8 +881,8 @@ function initProjectCarousel() {
         Array.from(filtersContainer.children).forEach(child => {
           const isSelected = child.textContent === cat;
           child.className = `px-5 py-2 rounded-xl text-sm font-mono font-bold transition-all duration-200 border-2 ${isSelected
-              ? 'bg-emerald-500 text-zinc-950 border-emerald-400 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.9)] scale-105'
-              : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-600 hover:text-white'
+            ? 'bg-emerald-500 text-zinc-950 border-emerald-400 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.9)] scale-105'
+            : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-600 hover:text-white'
             }`;
         });
 
