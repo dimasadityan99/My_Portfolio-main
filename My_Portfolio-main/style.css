@@ -1,0 +1,159 @@
+/* Custom stylesheet for portfolio site */
+
+:root {
+  font-family: Inter, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #f4f4f5;
+  background-color: #0d0d0e;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Scroll velocity defaults */
+  --scroll-velocity: 0;
+  --scroll-velocity-abs: 0;
+  --scroll-skew: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Infinite Marquee */
+.marquee-track {
+  width: max-content;
+  animation: marquee 24s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #0d0d0e;
+  overscroll-behavior-y: none;
+}
+
+::selection {
+  background-color: #22c55e;
+  color: #0f172a;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SCROLL VELOCITY INERTIA SYSTEM
+   All transforms use CSS custom properties updated every rAF
+───────────────────────────────────────────────────────────── */
+
+/* Background layer — drifts slowly downward with scroll */
+.velocity-surface {
+  transform:
+    translate3d(0, calc(var(--scroll-velocity) * 14px), 0)
+    skewY(calc(var(--scroll-skew) * 0.3deg));
+  will-change: transform, filter;
+  filter: blur(calc(var(--scroll-velocity-abs) * 0.5px));
+  transition: filter 0.1s linear;
+}
+
+/* Hero heading — drifts opposite direction (parallax up) */
+.velocity-heading {
+  transform:
+    translate3d(0, calc(var(--scroll-velocity) * -18px), 0)
+    skewX(calc(var(--scroll-skew) * 0.4deg));
+  will-change: transform;
+}
+
+/* Hero card / avatar — stronger parallax + slight scale pulse */
+.velocity-hero {
+  transform:
+    translate3d(0, calc(var(--scroll-velocity) * -22px), 0)
+    scale(calc(1 + var(--scroll-velocity-abs) * 0.015))
+    skewY(calc(var(--scroll-skew) * 0.25deg));
+  will-change: transform;
+}
+
+/* Cards in experience / testimonials — gentle drift */
+.velocity-card {
+  transform:
+    translate3d(0, calc(var(--scroll-velocity) * 10px), 0)
+    skewX(calc(var(--scroll-skew) * 0.2deg));
+  will-change: transform;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SECTION ENTRANCE ANIMATIONS
+   Applied via IntersectionObserver in app.js
+───────────────────────────────────────────────────────────── */
+
+/* Initial hidden state — elements start below + transparent */
+.sv-hidden {
+  opacity: 0;
+  transform: translate3d(0, 48px, 0) scale(0.97);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Visible state — snaps smoothly into place */
+.sv-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Staggered delay for child cards inside grids */
+#experience-timeline > div.sv-hidden:nth-child(1),
+#testimonials-grid   > div.sv-hidden:nth-child(1) { transition-delay: 0ms; }
+
+#experience-timeline > div.sv-hidden:nth-child(2),
+#testimonials-grid   > div.sv-hidden:nth-child(2) { transition-delay: 100ms; }
+
+#experience-timeline > div.sv-hidden:nth-child(3),
+#testimonials-grid   > div.sv-hidden:nth-child(3) { transition-delay: 200ms; }
+
+/* Section tag labels pop in with a subtle slide-right */
+section > div:first-child {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   REDUCED MOTION — respect accessibility preference
+───────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .velocity-surface,
+  .velocity-heading,
+  .velocity-hero,
+  .velocity-card {
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+
+  .sv-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
