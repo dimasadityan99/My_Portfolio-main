@@ -22,7 +22,7 @@ const PROJECTS = [
     overview: 'Designed an Odoo ERP-based Document Management System (DMS) that streamlines document workflows for Procurement and Digital Marketing CRM. Collaborated with Business Analysts and Developers to deliver implementation-ready UI/UX designs.',
     problem: 'The existing document management process involved complex workflows and lacked a structured user experience, making daily operations less efficient for multiple business teams.',
     solution: 'Translated business requirements into user flows, wireframes, prototypes, and high-fidelity UI designs that aligned with stakeholder expectations and were approved without scope revisions.',
-    link: 'https://app.notion.com/p/dimasann/Website-DMS-BYD-ERP-System-By-Odoo-39822241648e8006be93e9a07db0979f?source=copy_link'
+    link: 'https://app.notion.com/p/dimasann/BYD-ERP-System-DMS-Website-by-Odoo-94a22241648e83dba2e501acdd792196?source=copy_link'
   },
   {
     id: '02',
@@ -189,9 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
     EXPERIENCES.forEach((exp) => {
       const expEl = document.createElement('div');
       expEl.className = 'relative p-6 sm:p-8 bg-zinc-900 border-2 border-zinc-800 rounded-2xl hover:border-emerald-500 transition-all duration-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.8)] hover:shadow-[10px_10px_0px_0px_rgba(34,197,94,0.3)] group velocity-card';
-      
+
       const skillsHTML = exp.skills.map(skill => `<span class="px-2.5 py-1 bg-zinc-950 border border-zinc-800 text-zinc-400 text-xs font-mono rounded">${skill}</span>`).join('');
-      
+
       expEl.innerHTML = `
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
           <div class="md:col-span-2 flex md:flex-col justify-between items-start">
@@ -770,7 +770,7 @@ function initProjectCarousel() {
   const modalSolution = document.getElementById('modal-solution');
   const modalTags = document.getElementById('modal-tags');
   const modalLink = document.getElementById('modal-link');
-  
+
   const modalBadge = document.getElementById('modal-badge');
   const modalYear = document.getElementById('modal-year');
   const closeModalBtn = document.getElementById('close-modal-btn');
@@ -809,9 +809,8 @@ function initProjectCarousel() {
       const opacity = Math.max(0.2, 1 - Math.abs(normalizedOffset) * 0.4);
 
       const card = document.createElement('div');
-      card.className = `absolute w-[300px] sm:w-[360px] md:w-[400px] bg-zinc-900 border-2 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 ease-out select-none ${
-        isCenter ? 'border-emerald-500 shadow-[0_0_30px_rgba(34,197,94,0.3)] z-30' : 'border-zinc-800 z-10'
-      }`;
+      card.className = `absolute w-[300px] sm:w-[360px] md:w-[400px] bg-zinc-900 border-2 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 ease-out select-none ${isCenter ? 'border-emerald-500 shadow-[0_0_30px_rgba(34,197,94,0.3)] z-30' : 'border-zinc-800 z-10'
+        }`;
 
       // In Center state, apply drag offset
       const finalTranslateX = translateX + (isCenter ? dragOffset * 0.04 : 0);
@@ -868,25 +867,23 @@ function initProjectCarousel() {
   if (filtersContainer) {
     categories.forEach((cat) => {
       const btn = document.createElement('button');
-      btn.className = `px-5 py-2 rounded-xl text-sm font-mono font-bold transition-all duration-200 border-2 ${
-        activeFilter === cat
+      btn.className = `px-5 py-2 rounded-xl text-sm font-mono font-bold transition-all duration-200 border-2 ${activeFilter === cat
           ? 'bg-emerald-500 text-zinc-950 border-emerald-400 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.9)] scale-105'
           : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-600 hover:text-white'
-      }`;
+        }`;
       btn.textContent = cat;
       btn.addEventListener('click', () => {
         activeFilter = cat;
         filteredList = cat === 'All' ? PROJECTS : PROJECTS.filter(p => p.category === cat);
         activeIndex = 0;
-        
+
         // Update filter button styling
         Array.from(filtersContainer.children).forEach(child => {
           const isSelected = child.textContent === cat;
-          child.className = `px-5 py-2 rounded-xl text-sm font-mono font-bold transition-all duration-200 border-2 ${
-            isSelected
+          child.className = `px-5 py-2 rounded-xl text-sm font-mono font-bold transition-all duration-200 border-2 ${isSelected
               ? 'bg-emerald-500 text-zinc-950 border-emerald-400 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.9)] scale-105'
               : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-600 hover:text-white'
-          }`;
+            }`;
         });
 
         updateCarousel();
@@ -967,17 +964,17 @@ function initProjectCarousel() {
 
   // Modal Actions
   function openModal(proj) {
-    modalTitle.textContent    = proj.title;
+    modalTitle.textContent = proj.title;
     modalSubtitle.textContent = proj.subtitle;
-    modalImage.src            = proj.image;
-    modalImage.alt            = proj.title;
-    modalMetrics.textContent  = proj.metrics;
+    modalImage.src = proj.image;
+    modalImage.alt = proj.title;
+    modalMetrics.textContent = proj.metrics;
     modalOverview.textContent = proj.overview;
-    modalProblem.textContent  = proj.problem;
+    modalProblem.textContent = proj.problem;
     modalSolution.textContent = proj.solution;
-    modalBadge.textContent    = proj.badge;
-    modalYear.textContent     = proj.year;
-    modalLink.href            = proj.link;
+    modalBadge.textContent = proj.badge;
+    modalYear.textContent = proj.year;
+    modalLink.href = proj.link;
 
     modalTags.innerHTML = '';
     proj.tags.forEach(t => {
@@ -1008,7 +1005,7 @@ function initProjectCarousel() {
 
   if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
   if (closeModalFooterBtn) closeModalFooterBtn.addEventListener('click', closeModal);
-  
+
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
@@ -1020,7 +1017,7 @@ function initProjectCarousel() {
 // 6. Smooth Scroll and Section Navigation
 function initSmoothScroll() {
   const navLinks = document.querySelectorAll('.navigation-link');
-  
+
   navLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
       const targetHref = link.getAttribute('href');
@@ -1028,14 +1025,14 @@ function initSmoothScroll() {
         event.preventDefault();
         const targetId = targetHref.replace('#', '');
         const targetSection = document.getElementById(targetId);
-        
+
         if (targetSection) {
           const offsetTop = targetSection.getBoundingClientRect().top + window.scrollY - 96;
           window.scrollTo({
             top: offsetTop,
             behavior: 'smooth'
           });
-          
+
           window.history.pushState(null, '', targetHref);
         }
       }
