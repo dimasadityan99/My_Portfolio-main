@@ -22,7 +22,7 @@ const PROJECTS = [
     overview: 'Designed an Odoo ERP-based Document Management System (DMS) that streamlines document workflows for Procurement and Digital Marketing CRM. Collaborated with Business Analysts and Developers to deliver implementation-ready UI/UX designs.',
     problem: 'The existing document management process involved complex workflows and lacked a structured user experience, making daily operations less efficient for multiple business teams.',
     solution: 'Translated business requirements into user flows, wireframes, prototypes, and high-fidelity UI designs that aligned with stakeholder expectations and were approved without scope revisions.',
-    link: 'https://app.notion.com/p/dimasann/BYD-ERP-System-DMS-Website-by-Odoo-94a22241648e83dba2e501acdd792196?source=copy_link'
+    link: 'https://dimasann.notion.site/BYD-ERP-System-DMS-by-Odoo-3cc22241648e811ab4ccf4069e62dd7a?source=copy_link'
   },
   {
     id: '02',
@@ -134,7 +134,7 @@ const TESTIMONIALS = [
     id: 1,
     name: 'Amar Maruf',
     role: 'Cyber Security at Pertamina',
-    avatar: 'https://media.licdn.com/dms/image/v2/D5603AQFO7rzDPTeX2w/profile-displayphoto-shrink_400_400/B56ZcezAjsHUAo-/0/1748568378788?e=1786579200&v=beta&t=7JnZ9X-ZKlhFVrhsOZaDifFfTy8QSxDEoWzy4KFPSkI',
+    avatar: 'src/assets/Amar.png',
     quote: 'Dimas has a strong ability to translate business requirements into intuitive and implementation-ready designs. He communicates effectively with cross-functional teams and consistently delivers user-focused solutions.',
     rating: 5,
     stat: 'Business-Oriented Design'
@@ -143,7 +143,7 @@ const TESTIMONIALS = [
     id: 2,
     name: 'Malik',
     role: 'Odoo Developer at PT Juke Solutions',
-    avatar: 'https://media.licdn.com/dms/image/v2/D5603AQFWsA4bRX79BA/profile-displayphoto-scale_400_400/B56Z1q63TLHgAg-/0/1775615313433?e=1786579200&v=beta&t=yfIQKTtz_LE0qlIZOKohoandwkTtLUskKRjprA0DaTM',
+    avatar: 'src/assets/Malik.png',
     quote: 'Working with Dimas made the development process more efficient. His designs are well-structured, consistent, and include clear documentation that simplifies implementation within the Odoo ERP system.',
     rating: 5,
     stat: 'Developer-Friendly Design'
@@ -152,7 +152,7 @@ const TESTIMONIALS = [
     id: 3,
     name: 'Lina Amalia',
     role: 'Social Media Specialist at Grab Indonesia',
-    avatar: 'https://media.licdn.com/dms/image/v2/D5603AQHeFC3sgHODLA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1678699349668?e=1786579200&v=beta&t=hqL_tSrwHvKffrWe2g1fUG8DWJHjvGpeTC_K3lm3WRE',
+    avatar: 'src/assets/Lina.png',
     quote: 'Dimas combines creative thinking with a solid understanding of business goals. His designs are not only visually appealing but also effective in strengthening brand communication and enhancing the overall user experience.',
     rating: 5,
     stat: 'Creative Problem Solver'
